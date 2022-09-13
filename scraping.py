@@ -111,8 +111,12 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
 
-
+if __name__ == "__main__":
     
+    # If running as script, print scraped data
+    print(scrape_all())
+
+
 def hemispheres(browser):
     # 1. Use browser to visit the URL 
     url = 'https://marshemispheres.com/'
@@ -133,7 +137,7 @@ def hemispheres(browser):
         hemisphere_data = scrape_hemisphere(browser.html)
         hemisphere_image_urls.append(hemispheres)
         browser.back()
-    return hemispheres
+    return hemisphere_image_urls
 
 def scrape_hemisphere(html_text):
     # parse html text
@@ -150,9 +154,4 @@ def scrape_hemisphere(html_text):
         "title": title_elem,
         "img_url": sample_elem
     }
-    return 
-
-if __name__ == "__main__":
-    
-    # If running as script, print scraped data
-    print(scrape_all())
+    return hemispheres
