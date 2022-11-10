@@ -111,10 +111,6 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
 
-if __name__ == "__main__":
-    
-    # If running as script, print scraped data
-    print(scrape_all())
 
 
 def hemispheres(browser):
@@ -155,3 +151,9 @@ def scrape_hemisphere(html_text):
         "img_url": sample_elem
     }
     return hemispheres
+
+
+if __name__ == "__main__":
+    
+    # If running as script, print scraped data
+    print(scrape_all())
